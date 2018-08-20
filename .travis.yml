@@ -1,13 +1,15 @@
 language: node_js
 node_js:
 - 8.11.3
+
+install:
+  -npm install -g nightwatch
+
 before_script:
 - export CHROME_BIN=/usr/bin/google-chrome
+- export DISPLAY=:99.0
+- sh -e /etc/init.d xvfb start
 - sudo apt-get update
 - sudo apt-get install -y libappindicator1 fonts-liberation
 - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 - sudo dpkg -i google-chrome*.deb
-env:
-  global:
-  - secure: WyDr7lwD+sEjmCYl8RgXgwSxyjRgfxAaohJ69cdX4OD6tIdfkYHG0QXpJywTsnOwn6l9WTflXAMv6eXgz9iUX93PmFSbXGRB5vWahaWHMy2oH8KaDXppNxm05zpL1Z5aZAWhx58JK85FzhH6f1bXNqBo20HfT4lLHQpw7b3IfGWwmBIKYesK2mtGU7tnx+CpmqfXusezcGZBTX1UWesadSc1NKkHDs390ierwe8LY3yDcAISzaJFJW17BM2VFqFTcKEu9DVEkd4nCWawCkW1RRgyr5xt2oIn7s95cE7I/OJI8yZQCTrhSjnbQ7yGOhCqLJKho2J0CM3AuSf7IvI3Wp68HpVowvzGOg1G+grGjEdxdgG7x5GJ7P8nzsKfk/9HZPWzCxwp6gr2+ww4D6eez+fKaECLVd4rHU350IIbXojizhMtvSM3nRsBtbedzDoQed2zGAAjGals4GMBOrFqxz2HfsgVW4N0G541u0wIPhzoDzyFrR8KjhIQ+FKG6SuLcgCI42hEDLeAnF5X0jTbPSx8TjearLvtQ9x3thPtvP0a6L+rgufKsPSw9Zo9CWc9hGIsqFL4NByb/7HUlrUB3tw2IRqINHQojW4pRH6/K4aK6nVY3mKdjrdNnJ9TgdMB8/SX6oZNYfaSIQgDefllzuzfBndG8IrUO+SwMFzMSds=
-  - secure: TCRaoSG84asEgUD2SqdRalTM9uWNeH0ymOFr3VlTAaJBpd8N9ZMIN/9n3WEPA3C2wAYOQecN9Bl5av9prSpDQ5DyRlxA+zKDJRri0ls2oxDiNGdIxc4lC+e+3CQEkIVQ2vmtWnDdZXP8dihbx+psDydLR/wp0xYiM/3oKTgzSkO5k+/q/5p4BOXR5JGL6nll7zFnzIusmikFzk5TsTj4bGlVFQIuICgh9hdvL9maVmKUNDqAIb4dwmWq7RTs7yksT25pLGWITRNub9yiEHt/jftwmON+TsY6uWQgCVMw1TO94E4VoemE8r2FXbYYdeo++9codnp3a3p89tWp/nU8uX+AXqwoRjL7OTDPmfv2JKzEsuOj3yP4fOGRJvZHolAVC2++ofMDwTqSsOPUbrQ5b82i26HucRSTaTvpl+dMVOkdaPqHUq6GI3Isr9ab7MydHh4HyhK7WSYyZdzL+8NM8FrqkQbZPORibbhKKnL18Cb1+Wn5qQcVxEYoDjnQjiG0H3dN4c0AcWp1RoejLLQ7r3I39NuBSNko602u8SpDPf6zlZWSXMFsRN2gqB8yiswpdAtqtUXRpKBFAcSd0OEVL0MjCWteYyPQv1Cy3E+sL56Km1RWWXnLfSPv+Mt1HFZuL+zsY+SWaiCyvtTNyQdS3NGnkse9eSFmTp+/8i32C9w=

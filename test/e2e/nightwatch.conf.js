@@ -19,19 +19,12 @@ module.exports = {
 
   test_settings: {
     default: {
-      launch_url: 'http://localhost',
-      selenium_port: 80,
-      selenium_host: 'ondemand.saucelabs.com',
+      selenium_port: 4444,
+      selenium_host: 'localhost',
       silent: true,
-      username: process.env.SAUCE_USERNAME,
-      access_key: process.env.SAUCE_ACCESS_KEY,
-      screenshots: {
-        enabled: false,
-        path: '',
-      },
       globals: {
-        waitForConditionTimeout: 10000,
-      },
+        devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
+      }
     },
 
     chrome: {
