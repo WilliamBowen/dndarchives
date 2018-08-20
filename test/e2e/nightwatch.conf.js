@@ -26,10 +26,21 @@ module.exports = {
         devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
       }
     },
-    desiredCapabilities: {
-      browserName: 'chrome',
-      javascriptEnabled: true,
-      acceptSslCerts: true
+
+    chrome: {
+      desiredCapabilities: {
+        browserName: 'chrome',
+        javascriptEnabled: true,
+        acceptSslCerts: true
+      }
     },
+
+    firefox: {
+      desiredCapabilities: {
+        browserName: 'firefox',
+        javascriptEnabled: true,
+        acceptSslCerts: true
+      }
+    }
   }
 }
