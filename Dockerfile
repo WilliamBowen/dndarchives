@@ -1,12 +1,23 @@
-#Create the container from alpine image
-FROM node:9.11.1-alpine as builder
-WORKDIR /app
+FROM node:9.11.1-alpine as build
+
+RUN mkdir -p /dndarchives
+
+WORKDIR /dndarchives
+
 COPY package*.json ./
+
 RUN npm install
+
 COPY . .
+
+EXPOSE 8080
+
 RUN npm run build
 
-FROM nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g" "daemon off;"]
+
+
+FROM nginx:1.13.7-alpine
+
+COPY --from=build /dndarchives/dist/ /usr/share/nginx/html
+
+COPY ./nginx_config/default.conf /etc/nginx/conf.d/default.conf
