@@ -8,7 +8,7 @@ MAINTAINER willwbowen@gmail.com
 RUN apk add --update nginx
 
 # Create the directories needed for nginx
-RUN mkdir -p /tmp/nginx/dndarchives
+RUN mkdir -p /tmp/nginx/app
 RUN mkdir -p /var/log/nginx
 RUN mkdir -p /var/www/html
 
@@ -17,7 +17,7 @@ COPY nginx_config/nginx.conf /etc/nginx/nginx.conf
 COPY nginx_config/default.conf /etc/nginx/conf.d/default.conf
 
 # Set the directory we want to run the next commands for
-WORKDIR /tmp/nginx/dndarchives
+WORKDIR /tmp/nginx/app
 # Copy source code
 COPY . .
 # Install dependencies
