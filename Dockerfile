@@ -4,7 +4,7 @@ FROM node:9.11.1-alpine
 #Add maintainer info (who to contact if it breaks)
 MAINTAINER willwbowen@gmail.com
 
-RUN apk add -no-cache nginx
+RUN apk add --no-cache nginx
 
 EXPOSE 8080
 
