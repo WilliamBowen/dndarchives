@@ -10,7 +10,7 @@ EXPOSE 8080
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
 
 COPY nginx_config/nginx.conf /etc/nginx/nginx.conf
